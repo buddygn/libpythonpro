@@ -1,2 +1,2 @@
 # libpythonpro
-M'odulo para exemplificar constru'c~ao de projetos Pythons no curso de Pythools
+M'odulo para exemplificar construção de projetos Pythons no curso de Pythools
