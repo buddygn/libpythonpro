@@ -5,7 +5,7 @@ Nesse curso é ensinado como contribuir com projetos de código aberto
 
 Link para o curso [Python Pro](https://www.python.pro.br/)
 
-[![Build Status](https://travis-ci.org/buddygn/libpythonpro.svg?branch=main)](https://travis-ci.org/buddygn/libpythonpro)
+[![Build Status](https://travis-ci.com/buddygn/libpythonpro.svg?branch=main)](https://travis-ci.org/buddygn/libpythonpro)
 
 Suporte a versão 3 do Python
 
