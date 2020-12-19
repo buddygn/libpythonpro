@@ -8,6 +8,7 @@ Link para o curso [Python Pro](https://www.python.pro.br/)
 [![Build Status](https://travis-ci.com/buddygn/libpythonpro.svg?branch=main)](https://travis-ci.org/buddygn/libpythonpro)
 [![Updates](https://pyup.io/repos/github/buddygn/libpythonpro/shield.svg)](https://pyup.io/repos/github/buddygn/libpythonpro/)
 [![Python 3](https://pyup.io/repos/github/buddygn/libpythonpro/python-3-shield.svg)](https://pyup.io/repos/github/buddygn/libpythonpro/)
+[![codecov](https://codecov.io/gh/buddygn/libpythonpro/branch/main/graph/badge.svg?token=2YVPNFM21Z)](https://codecov.io/gh/buddygn/libpythonpro)
 
 Suporte a versão 3 do Python
 
