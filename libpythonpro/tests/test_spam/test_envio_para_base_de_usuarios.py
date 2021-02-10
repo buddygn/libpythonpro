@@ -1,0 +1,61 @@
+import pytest
+
+from libpythonpro.spam.enviador_email import Enviador
+from libpythonpro.spam.main import EnviadorDeSpam
+from libpythonpro.spam.modelos import Usuario
+
+
+class EnviadorMoc(Enviador):
+    def __init__(self):
+        super().__init__()
+        self.qtd_email_enviados = 0
+        self.parametros_de_envio = None
+
+    def enviar(self, remetente, destinatario, assunto, corpo):
+        self.parametros_de_envio = (remetente, destinatario, assunto, corpo)
+        self.qtd_email_enviados += 1
+
+
+@pytest.mark.parametrize(
+    'usuarios',
+    [
+        [
+            Usuario(nome='Geison', email='buddygn@gmail.com'),
+            Usuario(nome='teste', email='teste@gmail.com')
+        ],
+        [
+            Usuario(nome='Geison', email='buddygn@gmail.com'),
+            Usuario(nome='teste', email='teste@gmail.com')
+        ]
+
+    ]
+)
+def test_qde_de_spam(sessao, usuarios):
+    for usuario in usuarios:
+        sessao.salvar(usuario)
+    enviador = EnviadorMoc()
+    enviador_de_spam = EnviadorDeSpam(sessao, enviador)
+    enviador_de_spam.enviar_emails(
+        'buddygn@gmail.com',
+        'Teste envio de email',
+        'Corpo do email'
+    )
+    assert len(usuarios) == enviador.qtd_email_enviados
+
+
+def test_parametros_de_spam(sessao):
+    usuario = Usuario(nome='Amauri', email='amauri@gmail.com')
+    sessao.salvar(usuario)
+    enviador = EnviadorMoc()
+    enviador_de_spam = EnviadorDeSpam(sessao, enviador)
+    enviador_de_spam.enviar_emails(
+        'teste@gmail.com',
+        'Teste envio de email',
+        'Corpo do email'
+    )
+    assert enviador.parametros_de_envio == (
+        'teste@gmail.com',
+        'amauri@gmail.com',
+        'Teste envio de email',
+        'Corpo do email'
+    )
