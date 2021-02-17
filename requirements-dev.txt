@@ -11,6 +11,8 @@ py==1.10
 toml==0.10.2
 attrs==20.3.0
 pytest==6.2.0
+pytest-mock==3.5.1
+
 
 #Coverage
 pytest-cov==2.10.1
